@@ -1,0 +1,157 @@
+/* Reset básico para limpiar márgenes de pantalla */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Configuración de la cuadrícula base en el cuerpo de la página */
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Fila 1: Header, Fila 2: Cuerpo, Fila 3: Footer */
+    grid-template-columns: 260px 1fr;  /* Columna 1: Sidebar (260px), Columna 2: Contenido restante */
+    grid-template-areas: 
+        "header header"
+        "sidebar content"
+        "footer footer";
+    min-height: 100vh; /* Fuerza al footer a quedarse abajo si hay poco contenido */
+    background-color: #f4f6f9;
+}
+
+/* HEADER */
+.HEADER {
+    grid-area: header;
+    background-color: #1e293b;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* SIDEBAR */
+.SIDEBAR {
+    grid-area: sidebar;
+    background-color: #ffffff;
+    border-right: 1px solid #e2e8f0;
+    padding: 25px 15px;
+}
+
+/* Títulos internos del Sidebar */
+.SIDEBAR h3 {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 15px 0 8px 5px;
+}
+
+.SIDEBAR hr {
+    border: 0;
+    border-top: 1px solid #e2e8f0;
+    margin: 15px 0;
+}
+
+/* Estilo para los botones/enlaces de navegación */
+.btn-nav {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    color: #334155;
+    text-decoration: none;
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.btn-nav:hover {
+    background-color: #f1f5f9;
+    border-color: #94a3b8;
+    color: #0f172a;
+}
+
+/* Variaciones de botones */
+.btn-principal {
+    background-color: #eff6ff;
+    color: #2563eb;
+    border-color: #bfdbfe;
+    font-weight: 500;
+}
+.btn-principal:hover {
+    background-color: #2563eb;
+    color: white;
+}
+
+.btn-regresar {
+    background-color: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.btn-regresar:hover {
+    background-color: #000000;
+}
+
+/* CONTENT */
+.CONTENT {
+    grid-area: content;
+    padding: 40px;
+}
+
+/* Caja contenedora interna para el contenido */
+.box-interior {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+.box-interior h2 {
+    color: #1e293b;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 10px;
+}
+
+.box-interior p {
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.box-interior p.introduccion {
+    font-size: 1.1rem;
+    color: #334155;
+    font-weight: 500;
+}
+
+/* FOOTER */
+.FOOTER {
+    grid-area: footer;
+    background-color: #1e293b;
+    color: #94a3b8;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.85rem;
+}
+
+/* Responsivo: Si la pantalla es pequeña se acomoda en cascada */
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "sidebar"
+            "content"
+            "footer";
+    }
+    .SIDEBAR {
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+    }
+}
